@@ -31,7 +31,7 @@ func init() {
 		s.SetPort(config.Port)
 		return s
 	})
-	SpringBoot.RegisterNameBean("gf-server-starter", new(GFServerStarter)).AsInterface((*SpringBoot.ApplicationEvent)(nil))
+	SpringBoot.RegisterNameBean("gf-server-starter", new(GFServerStarter))
 }
 
 // WebServerConfig Web 服务器配置
@@ -46,6 +46,8 @@ type WebServerConfig struct {
 
 // GFServerStarter
 type GFServerStarter struct {
+	_ SpringBoot.ApplicationEvent `export:""`
+
 	Server *ghttp.Server `autowire:""`
 }
 
@@ -56,7 +58,7 @@ func (starter *GFServerStarter) OnStartApplication(ctx SpringBoot.ApplicationCon
 			filters := mapping.Filters()
 			for _, s := range mapping.FilterNames() {
 				var f SpringWeb.Filter
-				ctx.GetBeanByName(s, &f)
+				ctx.GetBean(&f, s)
 				filters = append(filters, f)
 			}
 			starter.Server.BindHandler(mapping.Path(), mapping.Handler()) // TODO
