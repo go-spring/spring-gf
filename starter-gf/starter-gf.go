@@ -17,10 +17,10 @@
 package StarterGF
 
 import (
-	"github.com/go-spring/go-spring-gf/spring-gf"
-	"github.com/go-spring/go-spring-parent/spring-utils"
-	"github.com/go-spring/go-spring-web/spring-web"
-	"github.com/go-spring/go-spring/spring-boot"
+	"github.com/go-spring/spring-boot"
+	"github.com/go-spring/spring-gf/spring-gf"
+	"github.com/go-spring/spring-utils"
+	"github.com/go-spring/spring-web"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
 )

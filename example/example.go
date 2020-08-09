@@ -17,8 +17,8 @@
 package example
 
 import (
-	"github.com/go-spring/go-spring-gf/spring-gf"
-	"github.com/go-spring/go-spring/spring-boot"
+	"github.com/go-spring/spring-boot"
+	"github.com/go-spring/spring-gf/spring-gf"
 	"github.com/gogf/gf/net/ghttp"
 )
 
